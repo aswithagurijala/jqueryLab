@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <script src="jquery-3.7.1.min.js"></script>
+
+    </head>
+    <style>
+        #background{
+            width:100px;
+            height: 100px;
+            background-color: yellow;
+        }
+        .checked{
+            background-color: blue;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+        }
+    </style>
+    <body>
+        <h3>change heading name on click Q-1</h3>
+        <h1 id="heading">HTML</h1>
+        <button id="change">Change</button><br>
+
+        <h3>Toggle paragraph visibility Q-2</h3>
+        <p id="content">Hii all,Iam G.Aswitha</p><br>
+        <button id="hide">visibility</button><br><br>
+
+        <h3>update image source Q-3</h3>
+        <img src="sadpuppy.jpg" id="image"><br><br>
+        <button id="imgChange">imgChange</button><br><br>
+
+        <h3>modify anchor tag dynamically Q-4</h3>
+        <a id="anchor" href="https:/www.google.com">Google</a><br><br>
+        <button id="changeLink">changeLink</button><br><br>
+
+        <h3>change background color Q-5</h3>
+        <div id="background"></div><br>
+        <button id="changeBg">changeBg</button>
+
+        <h3>Get and Set Input Field Value Q-6</h3>
+        <input type="text" id="userInput"><br><br>
+        <button id="get" style="margin-right: 20px;">Get value</button>
+        <button id="set" style="margin-right: 20px;">set value</button>
+
+        <h3> Add and Remove CSS Classes Q-7</h3>
+        <p id="hoverText">Hover over me</p>
+
+        <h3>Animate an Element Q-8</h3>
+        <div id="box"></div>
+        <button id="movebox">Animate</button>
+
+        <h3>Change Font Size Dynamically Q-9</h3>
+        <p id="fontsizing">Iam flexible</p>
+        <button id="increase">Increase</button>
+        <button id="decrease">Decrease</button>
+
+        <h3>Display Clicked Element's Text Q-10</h3>
+        <h5>Heading</h5>
+        <p id="me">paragraph</p>
+        <button id="btn">Iam Button</button>
+
+        <script>
+            $(document).ready(function(){
+                //chnage heading name on click Q-1
+                $('#change').click(function(){
+                    $('#heading').text("Jquery");
+                });
+                //Toggle paragraph visibility
+                $('#hide').click(function(){
+                    $('#content').toggle();
+                });
+                //update image source Q-3
+                $('#imgChange').click(function(){
+                    $('#image').attr('src','happy_puppy.jpg');
+                });
+                //modify anchor tag dynamically Q-4
+                $('#changeLink').click(function(){
+                    $('#anchor').attr('href','https:/www.instagram.com').text('Instagram');
+                });
+                //change background color Q-5
+                $('#changeBg').click(function(){
+                    $('#background').css('background-color','green');
+                });
+                //Get and Set Input Field Value Q-6
+                $('#get').click(function(){
+                    alert($('#userInput').val());
+                });
+                $('#set').click(function(){
+                    $('#userInput').val('Aswitha Gurijala');
+                });
+                // Add and Remove CSS Classes Q-7
+                $('#hoverText').mouseover(function(){
+                    $(this).addClass('checked');
+                });
+                $('#hoverText').mouseout(function(){
+                    $(this).removeClass('checked');
+                });
+                //Animate an Element Q-8
+                $("#movebox").click(function(){
+                    $('#box').animate({left:'500px',top:'100px',bottom: '500px',right:'150px'},1000,function(){
+                        $('#box').animate({left:0,},1000);
+                    });
+                });
+
+                //Change Font Size Dynamically Q-9
+                $('#increase').click(function(){
+                    $('#fontsizing').css('font-size','30px');
+                });
+                $('#decrease').click(function(){
+                    $('#fontsizing').css('font-size','10px');
+                });
+                
+                //Display Clicked Element's Text Q-10
+                $("h5,#me,#btn").click(function(){
+                    alert("your text : "+$(this).text());
+                });
+
+
+            });
+            
+        </script>
+    </body>
+
+</html>
